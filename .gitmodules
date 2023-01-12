@@ -1,0 +1,3 @@
+[submodule "direwolf"]
+	path = direwolf
+	url = git@github.com:RafaelGCPP/direwolf.git
