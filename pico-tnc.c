@@ -23,13 +23,7 @@ int main()
     // Also we can implemt those 2 frequencies using a sinusoid of 200Hz as base signal and 
     // decimating it by 6 for 1200Hz or 11 for 2200Hz.
     
-    clock_configure(clk_sys,
-                    CLOCKS_CLK_SYS_CTRL_SRC_VALUE_CLKSRC_CLK_SYS_AUX,
-                    CLOCKS_CLK_SYS_CTRL_AUXSRC_VALUE_CLKSRC_PLL_USB,
-                    132 * MHZ,
-                    132 * MHZ);
-    
-    stdio_init_all();
+    set_sys_clock_khz(132000, true);
 
 
     // Interpolator example code
