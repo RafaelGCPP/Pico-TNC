@@ -4,10 +4,7 @@
 #include "hardware/interp.h"
 #include "hardware/timer.h"
 #include "pico/cyw43_arch.h"
-#include "hardware/pll.h"
-#include "hardware/clocks.h"
-#include "hardware/structs/pll.h"
-#include "hardware/structs/clocks.h"
+#include "hardware/pwm.h"
 
 int64_t alarm_callback(alarm_id_t id, void *user_data) {
     // Put your timeout handler code in here
@@ -23,8 +20,24 @@ int main()
     // Also we can implemt those 2 frequencies using a sinusoid of 200Hz as base signal and 
     // decimating it by 6 for 1200Hz or 11 for 2200Hz.
     
-    set_sys_clock_khz(132000, true);
+    set_sys_clock_khz(PICO_TNC_CLOCK, true);
 
+    // Setup PWM generator
+    
+    gpio_set_function(AUDIO_OUTPUT_PIN, GPIO_FUNC_PWM);
+    uint slice_num = pwm_gpio_to_slice_num(AUDIO_OUTPUT_PIN);
+
+    pwm_config config = pwm_get_default_config();
+    pwm_config_set_clkdiv_int(&config, AUDIO_PWM_DIVIDER);
+    pwm_config_set_wrap(&config, AUDIO_PWM_TOP);
+    pwm_init(slice_num,&conifg,false);
+    
+
+    
+    
+    // Initialize the stdio interface
+    
+    stdio_init_all();
 
     // Interpolator example code
     interp_config cfg = interp_default_config();
