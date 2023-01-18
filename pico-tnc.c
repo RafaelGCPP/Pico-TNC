@@ -5,6 +5,7 @@
 #include "hardware/timer.h"
 #include "pico/cyw43_arch.h"
 #include "hardware/pwm.h"
+#include "afsk-parameters.h"
 
 int64_t alarm_callback(alarm_id_t id, void *user_data) {
     // Put your timeout handler code in here
@@ -30,7 +31,7 @@ int main()
     pwm_config config = pwm_get_default_config();
     pwm_config_set_clkdiv_int(&config, AUDIO_PWM_DIVIDER);
     pwm_config_set_wrap(&config, AUDIO_PWM_TOP);
-    pwm_init(slice_num,&conifg,false);
+    pwm_init(slice_num,&config,false);
     
 
     

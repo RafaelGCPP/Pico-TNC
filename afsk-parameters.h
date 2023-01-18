@@ -32,3 +32,9 @@ uint16_t sine200hz[66] = {
    263,  280,  301,  324,  350,  379, 
    410,  443,  477,  513,  550,  587
 };
+
+
+#define PICO_TNC_CLOCK 132000
+#define AUDIO_OUTPUT_PIN 16
+#define AUDIO_PWM_DIVIDER 8
+#define AUDIO_PWM_TOP 1250
