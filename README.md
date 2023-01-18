@@ -46,9 +46,9 @@ Those are maximum expected field sizes, and total 291 bytes. Bit stuffing will b
 during conversion from the bit stream buffer to the sample buffer. 
 
 Each 32 bits of the bit stream buffer will be converted to 11 samples and are subject to up to 6 
-bits of stuffing, thus the sample buffer must support up to 418 16-bit samples.
-
-
+bits of stuffing, thus the sample buffer must support up to 418 16-bit samples. There will be two 
+of such buffers, to allow DMA chaining.  After being converted into samples, a DMA channel is started 
+to feed the PWM and the next buffer is prepared. 
 
 # References
 [1] J. Huang, K. Padmanabhan and O. M. Collins, "The Sampling Theorem With Constant Amplitude Variable Width Pulses," 
