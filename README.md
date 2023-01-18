@@ -16,8 +16,9 @@ Right now in really early development, exploring how to generate the AFSK 1200bp
 # AFSK 1200 bps operation
 
 The Pico will be clocked to 132MHz so that the PWM frequency can be made 13200Hz, which
-is 11 times higher than space (1200Hz) and 6 times higher than mark (2200Hz). Then we can 
-use a sine table with 66 values (corresponding to 200Hz) to generate every sample, in MFSK.
+is 11 times higher than mark (1200Hz) and 6 times higher than space (2200Hz). Then we can 
+use a sine table with 66 values (corresponding to 200Hz) to generate every sample, in MFSK. 
+The frequencies for mark and space follow Bell 202 standard for modems.
 
 Each bit will consist on eleven 16-bit samples, and for perfect reconstruction the amplitude 
 is limited to 0.637 as per the _PWM sampling theorem_[1]: 
