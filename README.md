@@ -20,7 +20,7 @@ is 11 times higher than space (1200Hz) and 6 times higher than mark (2200Hz). Th
 use a sine table with 66 values (corresponding to 200Hz) to generate every sample, in MFSK.
 
 Each bit will consist on eleven 16-bit samples, and for perfect reconstruction the amplitude 
-is limited to 0.637 as per [1]: 
+is limited to 0.637 as per the [PWM sampling theorem][1] : 
 
 > The theorem states that any bandlimited baseband signal within ±0.637 can be represented by a 
 pulsewidth modulation (PWM) waveform with unit amplitude. The theorem states that any bandlimited 
@@ -51,5 +51,5 @@ of such buffers, to allow DMA chaining.  After being converted into samples, a D
 to feed the PWM and the next buffer is prepared. 
 
 # References
-[1] J. Huang, K. Padmanabhan and O. M. Collins, "The Sampling Theorem With Constant Amplitude Variable Width Pulses," 
+[1]: J. Huang, K. Padmanabhan and O. M. Collins, "The Sampling Theorem With Constant Amplitude Variable Width Pulses," 
 in _IEEE Transactions on Circuits and Systems I: Regular Papers_, vol. 58, no. 6, pp. 1178-1190, June 2011, doi: 10.1109/TCSI.2010.2094350.
