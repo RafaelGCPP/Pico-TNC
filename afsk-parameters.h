@@ -18,9 +18,9 @@ Thus, it is generated as:
 
 round((1+sin(2*pi*200/13200*n)*0.637)*1250/2)
 */
+#pragma once
 
 extern uint16_t sine200hz[66];
-
 
 #define PICO_TNC_CLOCK 132000
 #define AUDIO_OUTPUT_PIN 16
