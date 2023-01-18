@@ -24,7 +24,7 @@ pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(Pico-TNC pico-tnc.c )
+add_executable(Pico-TNC pico-tnc.c hdlc-afsk.c pwm-audio.c)
 
 pico_set_program_name(Pico-TNC "Pico-TNC")
 pico_set_program_version(Pico-TNC "0.1")
@@ -34,8 +34,7 @@ pico_enable_stdio_usb(Pico-TNC 0)
 
 # Add the standard library to the build
 target_link_libraries(Pico-TNC
-        pico_stdlib
-        hardware_pwm)
+        pico_stdlib)
 
 # Add the standard include files to the build
 target_include_directories(Pico-TNC PRIVATE
@@ -48,6 +47,7 @@ target_link_libraries(Pico-TNC
         hardware_dma
         hardware_interp
         hardware_timer
+        hardware_pwm
         pico_cyw43_arch_lwip_threadsafe_background
         )
 

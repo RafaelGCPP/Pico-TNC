@@ -1,3 +1,4 @@
+#include <stdint.h>
 #include "afsk-parameters.h"
 
 uint16_t sine200hz[66] = {

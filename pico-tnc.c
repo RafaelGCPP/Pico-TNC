@@ -17,14 +17,11 @@ int main()
 {
     
     // The clock frequency must be set to 132MHz before initializing the serial ports
-    // The 1200 bps AFSK uses 2200Hz for space and 1200Hz for mark. Using 13200Hz as PWM frequency,
-    // there will be 11 samples per bit.
-    // Also we can implemt those 2 frequencies using a sinusoid of 200Hz as base signal and 
-    // decimating it by 6 for 1200Hz or 11 for 2200Hz.
     
     set_sys_clock_khz(PICO_TNC_CLOCK, true);
 
     setup_pwm_generator();
+    setup_pwm_generator_dma_channel();
     
     
     // Initialize the stdio interface

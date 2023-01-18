@@ -26,3 +26,4 @@ extern uint16_t sine200hz[66];
 #define AUDIO_OUTPUT_PIN 16
 #define AUDIO_PWM_DIVIDER 8
 #define AUDIO_PWM_TOP 1250
+#define SAMPLES_PER_BIT 11
