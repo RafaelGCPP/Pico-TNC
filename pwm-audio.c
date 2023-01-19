@@ -29,8 +29,8 @@ void setup_pwm_generator()
   pwm_config config = pwm_get_default_config();
   pwm_config_set_clkdiv_int(&config, AUDIO_PWM_DIVIDER);
   pwm_config_set_wrap(&config, AUDIO_PWM_TOP);
-  pwm_set_chan_level(pwm_audio_slice_num, pwm_audio_channel, AUDIO_PWM_TOP);
-  pwm_init(pwm_audio_slice_num, &config, false);
+  pwm_set_chan_level(pwm_audio_slice_num, pwm_audio_channel, AUDIO_PWM_TOP/2); 
+  pwm_init(pwm_audio_slice_num, &config, true);
 }
 
 void setup_pwm_generator_dma_channel()

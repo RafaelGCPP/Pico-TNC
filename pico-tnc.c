@@ -5,7 +5,26 @@
 #include "pwm-audio.h"
 #include "afsk-parameters.h"
 
-int main()
+int main(void)
+{
+    set_sys_clock_khz(PICO_TNC_CLOCK, true);
+    stdio_init_all();
+    while (1)
+    {
+        puts("Hello, world!");
+
+        sleep_ms(5000);
+    }
+    return 0;
+}
+
+void dma_ih(void)
+{
+    dma_channel_acknowledge_irq0(pwm_dma_chan);
+    puts("Interrupted!");
+}
+
+int main_test_audio1()
 {
 
     // The clock frequency must be set to 132MHz before initializing the serial ports
@@ -28,8 +47,8 @@ int main()
     while (1)
     {
         puts("Hello, world!");
-        send_audio(AUDIO_BUFFER_SIZE, 0, false, NULL);
-        sleep_ms(10000);
+        send_audio(AUDIO_BUFFER_SIZE, 0, true, dma_ih);
+        sleep_ms(5000);
     }
     return 0;
 }
