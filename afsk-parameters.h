@@ -1,5 +1,5 @@
 /*
-This file define the parameters for implementing AFSK1200 
+This file define the parameters for implementing AFSK1200
 for the following parameters on the PWM device:
 
 * 132MHz clock frequency
@@ -23,7 +23,7 @@ round((1+sin(2*pi*200/13200*n)*0.637)*1250/2)
 extern uint16_t sine200hz[66];
 
 #define PICO_TNC_CLOCK 132000
-#define AUDIO_OUTPUT_PIN 16
+#define AUDIO_OUTPUT_PIN 22
 #define AUDIO_PWM_DIVIDER 8
 #define AUDIO_PWM_TOP 1250
 #define SAMPLES_PER_BIT 11
