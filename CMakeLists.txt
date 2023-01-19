@@ -45,8 +45,6 @@ target_include_directories(Pico-TNC PRIVATE
 # Add any user requested libraries
 target_link_libraries(Pico-TNC
         hardware_dma
-        hardware_interp
-        hardware_timer
         hardware_pwm
         pico_cyw43_arch_lwip_threadsafe_background
         )
