@@ -49,6 +49,9 @@ void setup_pwm_generator_dma_channel()
   // Transfer when PWM slice that is connected to the LED asks for a new value
   channel_config_set_dreq(&pwm_dma_chan_config, DREQ_PWM_WRAP0 + pwm_audio_slice_num);
 
+  // We want only the transfer complete interruption
+  channel_config_set_irq_quiet(&pwm_dma_chan_config, true);
+
   dma_channel_configure(
       pwm_dma_chan,                           // Name of DMA channel
       &pwm_dma_chan_config,                   // Configuration structure
